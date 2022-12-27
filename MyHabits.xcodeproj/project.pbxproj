@@ -12,7 +12,7 @@
 		DD92F668295A329E00FDC314 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92F667295A329E00FDC314 /* ViewController.swift */; };
 		DD92F66D295A32A000FDC314 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD92F66C295A32A000FDC314 /* Assets.xcassets */; };
 		DD92F670295A32A000FDC314 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD92F66E295A32A000FDC314 /* LaunchScreen.storyboard */; };
-		DD92F67A295A5A4A00FDC314 /* HabitsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92F679295A5A4A00FDC314 /* HabitsStore.swift */; };
+		DDED10EA295B4B6B00680998 /* HabitsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED10E9295B4B6B00680998 /* HabitsStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		DD92F66C295A32A000FDC314 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD92F66F295A32A000FDC314 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD92F671295A32A000FDC314 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD92F679295A5A4A00FDC314 /* HabitsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsStore.swift; sourceTree = "<group>"; };
+		DDED10E9295B4B6B00680998 /* HabitsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HabitsStore.swift; path = "../../../../../../Desktop/Новая папка/iosui-diplom/HabitsStore.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +59,7 @@
 				DD92F663295A329E00FDC314 /* AppDelegate.swift */,
 				DD92F665295A329E00FDC314 /* SceneDelegate.swift */,
 				DD92F667295A329E00FDC314 /* ViewController.swift */,
-				DD92F679295A5A4A00FDC314 /* HabitsStore.swift */,
+				DDED10E9295B4B6B00680998 /* HabitsStore.swift */,
 				DD92F66C295A32A000FDC314 /* Assets.xcassets */,
 				DD92F66E295A32A000FDC314 /* LaunchScreen.storyboard */,
 				DD92F671295A32A000FDC314 /* Info.plist */,
@@ -137,9 +137,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDED10EA295B4B6B00680998 /* HabitsStore.swift in Sources */,
 				DD92F668295A329E00FDC314 /* ViewController.swift in Sources */,
 				DD92F664295A329E00FDC314 /* AppDelegate.swift in Sources */,
-				DD92F67A295A5A4A00FDC314 /* HabitsStore.swift in Sources */,
 				DD92F666295A329E00FDC314 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

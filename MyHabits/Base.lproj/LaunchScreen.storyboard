@@ -33,23 +33,30 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Qz7-ds-zyE" firstAttribute="top" secondItem="rCF-gj-rJS" secondAttribute="bottom" constant="59" id="0vC-se-fj5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Qz7-ds-zyE" secondAttribute="bottom" constant="76" id="46m-Yc-NrP"/>
+                            <constraint firstItem="Qz7-ds-zyE" firstAttribute="top" secondItem="rCF-gj-rJS" secondAttribute="bottom" constant="46" id="7en-7Q-H2b"/>
                             <constraint firstItem="rCF-gj-rJS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9za-Qn-Yel"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Qz7-ds-zyE" secondAttribute="bottom" constant="76" id="IY6-ML-2Au"/>
                             <constraint firstItem="Qz7-ds-zyE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WzB-Le-bU4"/>
                             <constraint firstItem="rCF-gj-rJS" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="dLC-NZ-irV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Qz7-ds-zyE" secondAttribute="bottom" constant="20" id="m1p-DP-WFP"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="46m-Yc-NrP"/>
                                 <exclude reference="IY6-ML-2Au"/>
-                                <exclude reference="m1p-DP-WFP"/>
+                                <exclude reference="0vC-se-fj5"/>
+                                <exclude reference="7en-7Q-H2b"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="0vC-se-fj5"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
                             <mask key="constraints">
-                                <include reference="m1p-DP-WFP"/>
+                                <include reference="7en-7Q-H2b"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
