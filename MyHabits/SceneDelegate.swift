@@ -30,8 +30,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             red: 247/255,
             green: 247/255,
             blue: 247/255,
+            alpha: 0.8)
+        tabBar.tabBar.tintColor = UIColor(
+            red: 161/255,
+            green: 22/255,
+            blue: 204/255,
             alpha: 1.0)
-        tabBar.tabBar.tintColor = UIColor(named: "ColorSet")
         return tabBar
     }
 
