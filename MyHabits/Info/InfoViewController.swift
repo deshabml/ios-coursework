@@ -18,57 +18,33 @@ class InfoViewController: UIViewController {
         return labelHeading
     }()
 
-//    private lazy var labelInfoOne: UILabel = {
-//        labelInfoSettings(number: 1)
-//    }()
-//
-//    private lazy var labelInfoTwo: UILabel = {
-//        labelInfoSettings(number: 2)
-//    }()
-//
-//    private lazy var labelInfoThree: UILabel = {
-//        labelInfoSettings(number: 3)
-//    }()
-//
-//    private lazy var labelInfoFour: UILabel = {
-//        labelInfoSettings(number: 4)
-//    }()
-//
-//    private lazy var labelInfoFive: UILabel = {
-//        labelInfoSettings(number: 5)
-//    }()
-//
-//    private lazy var labelInfoSix: UILabel = {
-//        labelInfoSettings(number: 6)
-//    }()
-
     private lazy var infoStack: UIStackView = {
         let stackTextField = UIStackView()
         stackTextField.axis = .vertical
-        stackTextField.distribution = .fillProportionally
-        stackTextField.spacing = 10
+        stackTextField.distribution = .fill
+        stackTextField.spacing = 12
         stackTextField.translatesAutoresizingMaskIntoConstraints = false
-        stackTextField.addArrangedSubview(labelInfoSettings(number: 1))
-        stackTextField.addArrangedSubview(labelInfoSettings(number: 2))
-        stackTextField.addArrangedSubview(labelInfoSettings(number: 3))
-        stackTextField.addArrangedSubview(labelInfoSettings(number: 4))
-        stackTextField.addArrangedSubview(labelInfoSettings(number: 5))
-        stackTextField.addArrangedSubview(labelInfoSettings(number: 6))
-        stackTextField.addArrangedSubview(labelInfoSettings(number: 7))
+        for i in 1..<info.count {
+            stackTextField.addArrangedSubview(labelInfoSettings(number: i))
+        }
         return stackTextField
     }()
 
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1000)
+        scrollView.backgroundColor = .white
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        titleSetting()
+        view.backgroundColor = UIColor(
+            red: 247/255,
+            green: 247/255,
+            blue: 247/255,
+            alpha: 1)
+        title = "Информация"
         view.addSubview(scrollView)
         scrollView.addSubviews([
             labelHeading,
@@ -81,15 +57,6 @@ class InfoViewController: UIViewController {
 
 extension InfoViewController {
 
-    private func titleSetting() {
-        navigationController?.navigationBar.backgroundColor = UIColor(
-            red: 247/255,
-            green: 247/255,
-            blue: 247/255,
-            alpha: 0.8)
-        title = "Информация"
-    }
-
     private func installingСonstraints() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -100,7 +67,8 @@ extension InfoViewController {
             labelHeading.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
             infoStack.topAnchor.constraint(equalTo: labelHeading.bottomAnchor, constant: 16),
             infoStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            infoStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
+            infoStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            infoStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16)
         ])
     }
 
@@ -140,6 +108,8 @@ extension InfoViewController {
         """,
         """
         6. На 90-й день соблюдения техники все лишнее из «прошлой жизни» перестает напоминать о себе, и человек, оглянувшись назад, осознает себя полностью обновившимся.
-        """
+        """,
+        "Источник: psychbook.ru"
     ]}
+    
 }
