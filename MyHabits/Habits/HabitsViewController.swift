@@ -11,24 +11,15 @@ class HabitsViewController: UIViewController {
 
     private lazy var addingButton: UIButton = {
         var configuration = UIButton.Configuration.filled()
-//        configuration.title = "Log In"
-//        configuration.baseForegroundColor = .red
         configuration.baseBackgroundColor = .white
-        let imagePlus = UIImageView(image: UIImage(systemName: "plus")!.withRenderingMode(.alwaysTemplate))
-        imagePlus.tintColor = .red
-
-        configuration.background.customView = UIImageView(image: UIImage(systemName: "plus"))
-//        UIImage(systemName: "plus").UIColor.red
-        configuration.baseForegroundColor = .red
+        let imagePlus = UIImageView(image: UIImage(systemName: "plus"))
+        imagePlus.tintColor = UIColor(
+            red: 161/255,
+            green: 22/255,
+            blue: 204/255,
+            alpha: 1.0)
+        configuration.background.customView = imagePlus
         let addingButton = UIButton(configuration: configuration, primaryAction: nil)
-//        let imagePlus = UIImage(systemName: "plus")
-//        imagePlus?.configuration.colo
-//        imagePlus?.withTintColor(UIColor(
-//            red: 161/255,
-//            green: 22/255,
-//            blue: 204/255,
-//            alpha: 1.0))
-//        addingButton.setBackgroundImage(imagePlus.red, for: .normal)
         addingButton.translatesAutoresizingMaskIntoConstraints = false
         return addingButton
     }()
