@@ -51,8 +51,9 @@ extension HabitsViewController {
     }
 
     @objc func buttonPlusAction() {
-        let hvc = HabitViewController()
-        present(hvc, animated: true)
+        let nc = UINavigationController(rootViewController: HabitViewController())
+        nc.modalPresentationStyle = .fullScreen
+        present(nc, animated: true)
     }
 
 
