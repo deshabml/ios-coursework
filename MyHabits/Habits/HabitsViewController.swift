@@ -20,6 +20,7 @@ class HabitsViewController: UIViewController {
             alpha: 1.0)
         configuration.background.customView = imagePlus
         let addingButton = UIButton(configuration: configuration, primaryAction: nil)
+        addingButton.addTarget(self, action: #selector(buttonPlusAction), for: .touchUpInside)
         addingButton.translatesAutoresizingMaskIntoConstraints = false
         return addingButton
     }()
@@ -47,6 +48,11 @@ extension HabitsViewController {
             addingButton.widthAnchor.constraint(equalToConstant: 23),
             addingButton.heightAnchor.constraint(equalToConstant: 23)
         ])
+    }
+
+    @objc func buttonPlusAction() {
+        let hvc = HabitViewController()
+        present(hvc, animated: true)
     }
 
 
