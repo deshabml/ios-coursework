@@ -12,17 +12,55 @@ class HabitViewController: UIViewController {
     private lazy var labelName: UILabel = {
         let labelName = UILabel()
         labelName.text = "НАЗВАНИЕ"
-        labelName.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
-        labelName.tintColor = .black
-        labelName.translatesAutoresizingMaskIntoConstraints = false
-        return labelName
+        return labelSettings(labelName)
+    }()
+
+    private lazy var textFieldName: UITextField = {
+        let textFieldName = UITextField()
+        textFieldName.layer.borderWidth = 0
+        textFieldName.placeholder = "Бегать по утрам, спать 8 часов и т.п."
+        textFieldName.textColor = .black
+        textFieldName.tintColor = .black
+        textFieldName.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        return textFieldName
+    }()
+
+    private lazy var labelColor: UILabel = {
+        let labelColor = UILabel()
+        labelColor.text = "ЦВЕТ"
+        return labelSettings(labelColor)
+    }()
+
+    lazy var imageViewColor: UIImageView = {
+        let imageViewColor = UIImageView()
+        imageViewColor.layer.cornerRadius = 15
+        imageViewColor.backgroundColor = .orange
+        imageViewColor.isUserInteractionEnabled = true
+        imageViewColor.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(buttonAction)))
+        return imageViewColor
+    }()
+
+    private lazy var labelTime: UILabel = {
+        let labelTime = UILabel()
+        labelTime.text = "ВРЕМЯ"
+        return labelSettings(labelTime)
+    }()
+
+    private lazy var dataPicker: UIDatePicker = {
+        let dataPicker = UIDatePicker()
+        return dataPicker
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubviews([
-            labelName
+            labelName,
+            textFieldName,
+            labelColor,
+            imageViewColor,
+            labelTime,
+            dataPicker
         ])
         installingСonstraints()
     }
@@ -38,8 +76,28 @@ extension HabitViewController {
     private func installingСonstraints() {
         NSLayoutConstraint.activate([
             labelName.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 21),
-            labelName.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 21)
+            labelName.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 21),
+            textFieldName.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 7),
+            textFieldName.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 21),
+            textFieldName.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 21),
+            textFieldName.heightAnchor.constraint(equalToConstant: 22),
+            labelColor.topAnchor.constraint(equalTo: textFieldName.bottomAnchor, constant: 15),
+            labelColor.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 21),
+            imageViewColor.widthAnchor.constraint(equalToConstant: 30),
+            imageViewColor.heightAnchor.constraint(equalTo: imageViewColor.widthAnchor),
+            imageViewColor.topAnchor.constraint(equalTo: labelColor.bottomAnchor, constant: 7),
+            imageViewColor.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 21),
+            labelTime.topAnchor.constraint(equalTo: imageViewColor.bottomAnchor, constant: 15),
+            labelTime.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 21),
+            dataPicker.topAnchor.constraint(equalTo: labelTime.bottomAnchor, constant: 7),
+            dataPicker.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
         ])
+    }
+
+    private func labelSettings(_ label: UILabel) -> UILabel {
+        label.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        label.tintColor = .black
+        return label
     }
 
     @objc func buttonAction() {
