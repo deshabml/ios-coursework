@@ -36,7 +36,7 @@ class HabitViewController: UIViewController {
         imageViewColor.layer.cornerRadius = 15
         imageViewColor.backgroundColor = .orange
         imageViewColor.isUserInteractionEnabled = true
-        imageViewColor.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(buttonAction)))
+        imageViewColor.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(colorSetAction)))
         return imageViewColor
     }()
 
@@ -46,13 +46,37 @@ class HabitViewController: UIViewController {
         return labelSettings(labelTime)
     }()
 
+    private lazy var dataLabel: UILabel = {
+        let dataLabel = UILabel()
+        dataLabel.text = "Каждый день в "
+        return dataLabel
+    }()
+
+    private lazy var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .short
+        return dateFormatter
+    }()
+
+    private lazy var timeLabel: UILabel = {
+        let timeLabel = UILabel()
+        timeLabel.textColor = UIColor(
+            red: 161/255,
+            green: 22/255,
+            blue: 204/255,
+            alpha: 1.0)
+        timeLabel.text = dateFormatter.string(from: dataPicker.date)
+        return timeLabel
+    }()
+
     private lazy var dataPicker: UIDatePicker = {
         let dataPicker = UIDatePicker()
         dataPicker.datePickerMode = .time
         dataPicker.date = Date()
         dataPicker.locale = .current
         dataPicker.preferredDatePickerStyle = .wheels
-//        dataPicker.datePickerStyle(true)
+        dataPicker.addTarget(self, action: #selector(pickerAction), for: .allEvents)
         return dataPicker
     }()
 
@@ -65,6 +89,8 @@ class HabitViewController: UIViewController {
             labelColor,
             imageViewColor,
             labelTime,
+            dataLabel,
+            timeLabel,
             dataPicker
         ])
         installingСonstraints()
@@ -94,8 +120,12 @@ extension HabitViewController {
             imageViewColor.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 21),
             labelTime.topAnchor.constraint(equalTo: imageViewColor.bottomAnchor, constant: 15),
             labelTime.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 21),
-            dataPicker.topAnchor.constraint(equalTo: labelTime.bottomAnchor, constant: 7),
-            dataPicker.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
+            dataLabel.topAnchor.constraint(equalTo: labelTime.bottomAnchor, constant: 7),
+            dataLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 21),
+            timeLabel.topAnchor.constraint(equalTo: labelTime.bottomAnchor, constant: 7),
+            timeLabel.leadingAnchor.constraint(equalTo: dataLabel.trailingAnchor),
+            dataPicker.topAnchor.constraint(equalTo: dataLabel.bottomAnchor, constant: 15),
+            dataPicker.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
         ])
     }
 
@@ -105,12 +135,23 @@ extension HabitViewController {
         return label
     }
 
+    @objc func pickerAction() {
+        timeLabel.text = dateFormatter.string(from: dataPicker.date)
+    }
+
     @objc func buttonAction() {
         print("ap op")
     }
 
     @objc func buttenBackAction() {
         dismiss(animated: true)
+    }
+
+    @objc func colorSetAction() {
+        let colorSet = UIColorPickerViewController()
+        colorSet.selectedColor = imageViewColor.backgroundColor ?? .orange
+        colorSet.delegate = self
+        present(colorSet, animated: true)
     }
 
     private func navigationBarSetting() {
@@ -140,3 +181,15 @@ extension HabitViewController {
     }
 
 }
+
+extension HabitViewController: UIColorPickerViewControllerDelegate {
+
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        let color = viewController.selectedColor
+        imageViewColor.backgroundColor = color
+    }
+
+}
+
+
+
