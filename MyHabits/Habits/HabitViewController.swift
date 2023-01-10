@@ -73,7 +73,6 @@ class HabitViewController: UIViewController {
     private lazy var dataPicker: UIDatePicker = {
         let dataPicker = UIDatePicker()
         dataPicker.datePickerMode = .time
-//        dataPicker.date = Date()
         dataPicker.locale = .current
         dataPicker.preferredDatePickerStyle = .wheels
         dataPicker.addTarget(self, action: #selector(pickerAction), for: .allEvents)

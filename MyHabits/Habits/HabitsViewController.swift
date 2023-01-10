@@ -30,9 +30,9 @@ class HabitsViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
-//        layout.minimumInteritemSpacing = 12
+        layout.sectionInset = UIEdgeInsets(top: 18, left: 0, bottom: 0, right: 0)
         layout.minimumLineSpacing = 12
+//        layout.accessibilityPath?.addArc(withCenter: 1, radius: 10, startAngle: 1, endAngle: 1, clockwise: 1)
         collectionView.collectionViewLayout = layout
         collectionView.backgroundColor = UIColor(
             red: 242/255,
@@ -49,6 +49,7 @@ class HabitsViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(HabitCollectionViewCell.self, forCellWithReuseIdentifier: HabitCollectionViewCell.id)
+        collectionView.register(ProgressCollectionViewCell.self, forCellWithReuseIdentifier: ProgressCollectionViewCell.id)
         view.addSubviews([
             addingButton,
             collectionView
@@ -90,18 +91,38 @@ extension HabitsViewController {
 
 extension HabitsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        2
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        HabitsStore.shared.habits.count
+        if section == 0 {
+            return 1
+        } else {
+            return dataSource.count
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HabitCollectionViewCell.id, for: indexPath) as! HabitCollectionViewCell
-        cell.textLabelName = dataSource[indexPath.item].name
-        return cell
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgressCollectionViewCell.id, for: indexPath) as! ProgressCollectionViewCell
+            cell.layer.cornerRadius = 8
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HabitCollectionViewCell.id, for: indexPath) as! HabitCollectionViewCell
+            cell.textLabelName = dataSource[indexPath.item].name
+            cell.textLabelTime = dataSource[indexPath.item].dateString
+            cell.layer.cornerRadius = 8
+            return cell
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width - 32),height: 130)
+        if indexPath.section == 0 {
+            return CGSize(width: (UIScreen.main.bounds.width - 32),height: 60)
+        } else {
+            return CGSize(width: (UIScreen.main.bounds.width - 32),height: 130)
+        }
     }
 
 
