@@ -73,7 +73,7 @@ class HabitViewController: UIViewController {
     private lazy var dataPicker: UIDatePicker = {
         let dataPicker = UIDatePicker()
         dataPicker.datePickerMode = .time
-        dataPicker.date = Date()
+//        dataPicker.date = Date()
         dataPicker.locale = .current
         dataPicker.preferredDatePickerStyle = .wheels
         dataPicker.addTarget(self, action: #selector(pickerAction), for: .allEvents)
@@ -140,7 +140,12 @@ extension HabitViewController {
     }
 
     @objc func buttonAction() {
-        print("ap op")
+        let newHabit = Habit(name: textFieldName.text ?? "",
+                             date: dataPicker.date,
+                             color: imageViewColor.backgroundColor ?? .orange)
+        let store = HabitsStore.shared
+        store.habits.append(newHabit)
+        dismiss(animated: true)
     }
 
     @objc func buttenBackAction() {
