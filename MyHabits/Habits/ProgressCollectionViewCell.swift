@@ -33,41 +33,63 @@ class ProgressCollectionViewCell: UICollectionViewCell {
             alpha: 1.0)
         labelPercent.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
         labelPercent.numberOfLines = 1
-        labelPercent.text = "\(Int(HabitsStore.shared.todayProgress * 100))%"
         return labelPercent
     }()
 
     private lazy var progress: UIProgressView = {
         let progress = UIProgressView()
-        progress.progress = HabitsStore.shared.todayProgress
+        progress.progressTintColor = UIColor(
+            red: 161/255,
+            green: 22/255,
+            blue: 204/255,
+            alpha: 1.0)
         return progress
     }()
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        backgroundColor = .white
-        addSubviews([
+    private lazy var backView: UIView = {
+        let backView = UIView()
+        backView.backgroundColor = .white
+        backView.layer.cornerRadius = 8
+        backView.addSubviews([
             labelMotivation,
             progress,
             labelPercent
         ])
+        return backView
+    }()
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        addSubviews([
+            backView
+        ])
         installingСonstraints()
     }
-    
+
+    func setupHeader(_ store: HabitsStore) {
+        labelPercent.text = "\(Int(store.todayProgress * 100))%"
+        progress.setProgress(store.todayProgress, animated: true)
+    }
+
 }
 
 extension ProgressCollectionViewCell {
 
     private func installingСonstraints() {
         NSLayoutConstraint.activate([
-            labelMotivation.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            labelMotivation.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            backView.topAnchor.constraint(equalTo: topAnchor, constant: 22),
+            backView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            backView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            backView.heightAnchor.constraint(equalToConstant: 60),
+            labelMotivation.topAnchor.constraint(equalTo: backView.topAnchor, constant: 10),
+            labelMotivation.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 12),
             progress.topAnchor.constraint(equalTo: labelMotivation.bottomAnchor, constant: 10),
-            progress.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            progress.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 12),
+            progress.heightAnchor.constraint(equalToConstant: 7),
             progress.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 32 - 24),
-            labelPercent.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            labelPercent.trailingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: UIScreen.main.bounds.width - 32 - 24)
+            labelPercent.topAnchor.constraint(equalTo: backView.topAnchor, constant: 10),
+            labelPercent.trailingAnchor.constraint(equalTo: backView.leadingAnchor, constant: UIScreen.main.bounds.width - 32 - 24)
         ])
     }
-
+    
 }
