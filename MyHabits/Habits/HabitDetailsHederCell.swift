@@ -23,7 +23,7 @@ class HabitDetailsHederCell: UITableViewHeaderFooterView {
         labelText.translatesAutoresizingMaskIntoConstraints = false
         return labelText
     }()
-    
+
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         addSubview(labelText)
@@ -41,7 +41,7 @@ extension HabitDetailsHederCell {
     private func installingСonstraints() {
         NSLayoutConstraint.activate([
             labelText.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            labelText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            labelText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16)
         ])
     }
     

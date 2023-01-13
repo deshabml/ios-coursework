@@ -15,16 +15,29 @@ class DateTableViewCell: UITableViewCell {
         let dateLabel = UILabel()
         dateLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         dateLabel.textColor = .black
-        dateLabel.translatesAutoresizingMaskIntoConstraints = false
         return dateLabel
+    }()
+
+    lazy var imageStatus: UIImageView = {
+        var imageStatus = UIImageView()
+        imageStatus.tintColor = UIColor(
+            red: 161/255,
+            green: 22/255,
+            blue: 204/255,
+            alpha: 1.0)
+        return imageStatus
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .white
-        addSubview(dateLabel)
+        addSubviews([
+            dateLabel,
+            imageStatus
+        ])
         installingСonstraints()
     }
+
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -43,7 +56,9 @@ extension DateTableViewCell {
         NSLayoutConstraint.activate([
             dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 11),
             dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 11)
+            dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 11),
+            imageStatus.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 11),
+            imageStatus.leadingAnchor.constraint(equalTo: dateLabel.trailingAnchor, constant: 270)
         ])
     }
     

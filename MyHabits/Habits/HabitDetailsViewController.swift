@@ -109,6 +109,10 @@ extension HabitDetailsViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DateTableViewCell.id, for: indexPath) as! DateTableViewCell
         cell.dateLabel.text = dateFormatter.string(from: HabitsStore.shared.dates[HabitsStore.shared.dates.count - indexPath.item - 1])
+        guard let habit = habit else { return cell }
+        if HabitsStore.shared.habit(habit, isTrackedIn: HabitsStore.shared.dates[HabitsStore.shared.dates.count - indexPath.item - 1]) {
+            cell.imageStatus.image = UIImage(systemName: "checkmark")
+        }
         return cell
     }
 
