@@ -11,6 +11,8 @@ class HabitDetailsViewController: UIViewController {
     
     var habit: Habit?
 
+    var index: Int?
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
@@ -73,7 +75,8 @@ extension HabitDetailsViewController {
             green: 22/255,
             blue: 204/255,
             alpha: 1.0)
-        navigationItem.leftBarButtonItem?.title = "Cегодня"
+        navigationItem.leftBarButtonItem?.title = "Сегодня"
+        navigationItem.leftBarButtonItem?.style = .done
         navigationItem.leftBarButtonItem?.tintColor = UIColor(
             red: 161/255,
             green: 22/255,
@@ -82,11 +85,10 @@ extension HabitDetailsViewController {
     }
 
     @objc func editAction() {
-
-    }
-
-    @objc func buttenBackAction() {
-        dismiss(animated: true)
+        let hvc = HabitViewController()
+        hvc.habit = habit
+        hvc.index = index
+        navigationController?.show(hvc, sender: .none)
     }
 
 }

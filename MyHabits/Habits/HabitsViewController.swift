@@ -143,6 +143,7 @@ extension HabitsViewController: UICollectionViewDataSource, UICollectionViewDele
         collectionView.deselectItem(at: indexPath, animated: true)
         let hdvc = HabitDetailsViewController()
         hdvc.habit = habitsStore.habits[indexPath.row]
+        hdvc.index = indexPath.row
         navigationController?.pushViewController(hdvc, animated: true)
     }
 
