@@ -11,33 +11,13 @@ class HabitsViewController: UIViewController {
 
     private var habitsStore = HabitsStore.shared
 
-    private lazy var addingButton: UIButton = {
-        var configuration = UIButton.Configuration.filled()
-        configuration.baseBackgroundColor = .white
-        let imagePlus = UIImageView(image: UIImage(systemName: "plus"))
-        imagePlus.tintColor = UIColor(
-            red: 161/255,
-            green: 22/255,
-            blue: 204/255,
-            alpha: 1.0)
-        configuration.background.customView = imagePlus
-        let addingButton = UIButton(configuration: configuration, primaryAction: nil)
-        addingButton.addTarget(self, action: #selector(buttonPlusAction), for: .touchUpInside)
-        return addingButton
-    }()
-
-    private lazy var labelDay: UILabel = {
-        let labelDay = UILabel()
-        labelDay.textColor = .black
-        labelDay.font = UIFont.systemFont(ofSize: 34, weight: .bold)
-        labelDay.text = "Cегодня"
-        return labelDay
-    }()
-
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 18, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0,
+                                           left: 0,
+                                           bottom: 0,
+                                           right: 0)
         layout.minimumLineSpacing = 12
         let collectionView = UICollectionView(
             frame: .zero,
@@ -50,20 +30,18 @@ class HabitsViewController: UIViewController {
             blue: 247/255,
             alpha: 1.0)
         collectionView.register(HabitCollectionViewCell.self, forCellWithReuseIdentifier: HabitCollectionViewCell.id)
-        collectionView.register(ProgressCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ProgressCollectionViewCell.id)
+        collectionView.register(ProgressCollectionViewCell.self,forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ProgressCollectionViewCell.id)
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        view.addSubviews([
-            addingButton,
-            labelDay,
-            collectionView
-        ])
+        navigationBarSetting()
+        view.addSubview(collectionView)
         installingСonstraints()
         let longClick = UILongPressGestureRecognizer(target: self, action: #selector(onLongClick))
         collectionView.addGestureRecognizer(longClick)
@@ -72,8 +50,21 @@ class HabitsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
         collectionView.reloadData()
+    }
+
+    private func navigationBarSetting() {
+        let navBarAppearance = UINavigationBarAppearance()
+        title = "Сегодня"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        navigationController?.navigationBar.tintColor = UIColor(
+            red: 161/255,
+            green: 22/255,
+            blue: 204/255,
+            alpha: 1.0)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(buttonPlusAction))
     }
 
 }
@@ -82,13 +73,7 @@ extension HabitsViewController {
 
     private func installingСonstraints() {
         NSLayoutConstraint.activate([
-            addingButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            addingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            addingButton.widthAnchor.constraint(equalToConstant: 23),
-            addingButton.heightAnchor.constraint(equalToConstant: 23),
-            labelDay.topAnchor.constraint(equalTo: addingButton.bottomAnchor, constant: 4),
-            labelDay.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 14),
-            collectionView.topAnchor.constraint(equalTo: labelDay.bottomAnchor, constant: 8),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
@@ -136,7 +121,7 @@ extension HabitsViewController: UICollectionViewDataSource, UICollectionViewDele
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width - 32),height: 80)
+        return CGSize(width: collectionView.frame.width,height: 100)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -153,12 +138,16 @@ extension HabitsViewController: UICollectionViewDataSource, UICollectionViewDele
         HabitsStore.shared.habits.insert(item, at: destinationIndexPath.item)
     }
 
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        print("you")
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let hdvc = HabitDetailsViewController()
+        hdvc.habit = habitsStore.habits[indexPath.row]
+        navigationController?.pushViewController(hdvc, animated: true)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width - 32),height: 130)
+        return CGSize(width: UIScreen.main.bounds.width - 32,height: 130)
     }
 
 }

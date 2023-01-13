@@ -1,10 +1,10 @@
+////
+////  HabitCollectionViewCell.swift
+////  MyHabits
+////
+////  Created by Лаборатория on 10.01.2023.
+////
 //
-//  HabitCollectionViewCell.swift
-//  MyHabits
-//
-//  Created by Лаборатория on 10.01.2023.
-//
-
 import UIKit
 
 class HabitCollectionViewCell: UICollectionViewCell {
@@ -103,5 +103,5 @@ extension HabitCollectionViewCell {
         HabitsStore.shared.track(habit)
         onImageStatusAction()
     }
-    
+
 }

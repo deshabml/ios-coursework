@@ -139,10 +139,13 @@ extension HabitViewController {
     }
 
     @objc func buttonAction() {
+        guard let name = textFieldName.text else { return }
+        guard name != "" else { return }
         let newHabit = Habit(name: textFieldName.text ?? "",
                              date: dataPicker.date,
                              color: imageViewColor.backgroundColor ?? .orange)
         let store = HabitsStore.shared
+//        store.habits.removeFirst()
         store.habits.append(newHabit)
         dismiss(animated: true)
     }

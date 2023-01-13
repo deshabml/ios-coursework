@@ -14,6 +14,9 @@
 		DD92F668295A329E00FDC314 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92F667295A329E00FDC314 /* ViewController.swift */; };
 		DD92F66D295A32A000FDC314 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD92F66C295A32A000FDC314 /* Assets.xcassets */; };
 		DD92F670295A32A000FDC314 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD92F66E295A32A000FDC314 /* LaunchScreen.storyboard */; };
+		DDD5A25529705EAB008DB9FD /* HabitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD5A25429705EAB008DB9FD /* HabitDetailsViewController.swift */; };
+		DDD5A25729713F1F008DB9FD /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD5A25629713F1F008DB9FD /* DateTableViewCell.swift */; };
+		DDD5A2592971474D008DB9FD /* HabitDetailsHederCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD5A2582971474D008DB9FD /* HabitDetailsHederCell.swift */; };
 		DDD8144A296181420088F871 /* HabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD81449296181420088F871 /* HabitViewController.swift */; };
 		DDED10EC295B4F4300680998 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED10EB295B4F4300680998 /* HabitsViewController.swift */; };
 		DDED10EE295B4F7D00680998 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED10ED295B4F7D00680998 /* InfoViewController.swift */; };
@@ -31,6 +34,9 @@
 		DD92F66C295A32A000FDC314 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD92F66F295A32A000FDC314 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD92F671295A32A000FDC314 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDD5A25429705EAB008DB9FD /* HabitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsViewController.swift; sourceTree = "<group>"; };
+		DDD5A25629713F1F008DB9FD /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
+		DDD5A2582971474D008DB9FD /* HabitDetailsHederCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsHederCell.swift; sourceTree = "<group>"; };
 		DDD81449296181420088F871 /* HabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewController.swift; sourceTree = "<group>"; };
 		DDED10EB295B4F4300680998 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
 		DDED10ED295B4F7D00680998 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +93,9 @@
 				DDED10EB295B4F4300680998 /* HabitsViewController.swift */,
 				DD1A9AEF296DC441002CB89B /* ProgressCollectionViewCell.swift */,
 				DD1A9AED296D9537002CB89B /* HabitCollectionViewCell.swift */,
+				DDD5A25429705EAB008DB9FD /* HabitDetailsViewController.swift */,
+				DDD5A2582971474D008DB9FD /* HabitDetailsHederCell.swift */,
+				DDD5A25629713F1F008DB9FD /* DateTableViewCell.swift */,
 				DDD81449296181420088F871 /* HabitViewController.swift */,
 				DDED10F0295B4FB000680998 /* HabitsStore.swift */,
 			);
@@ -174,9 +183,12 @@
 				DDED10F1295B4FB000680998 /* HabitsStore.swift in Sources */,
 				DD92F668295A329E00FDC314 /* ViewController.swift in Sources */,
 				DD1A9AEE296D9537002CB89B /* HabitCollectionViewCell.swift in Sources */,
+				DDD5A25729713F1F008DB9FD /* DateTableViewCell.swift in Sources */,
 				DD92F664295A329E00FDC314 /* AppDelegate.swift in Sources */,
+				DDD5A25529705EAB008DB9FD /* HabitDetailsViewController.swift in Sources */,
 				DDD8144A296181420088F871 /* HabitViewController.swift in Sources */,
 				DDED10EC295B4F4300680998 /* HabitsViewController.swift in Sources */,
+				DDD5A2592971474D008DB9FD /* HabitDetailsHederCell.swift in Sources */,
 				DD1A9AF0296DC441002CB89B /* ProgressCollectionViewCell.swift in Sources */,
 				DDED10EE295B4F7D00680998 /* InfoViewController.swift in Sources */,
 				DD92F666295A329E00FDC314 /* SceneDelegate.swift in Sources */,
