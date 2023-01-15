@@ -46,11 +46,6 @@ class HabitDetailsViewController: UIViewController {
         return dateFormatter
     }()
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = false
-    }
-
 }
 
 extension HabitDetailsViewController {

@@ -8,17 +8,17 @@
 import UIKit
 
 class HabitViewController: UIViewController {
-    
+
     var habit: Habit?
-    
+
     var index: Int?
-    
+
     private lazy var labelName: UILabel = {
         let labelName = UILabel()
         labelName.text = "НАЗВАНИЕ"
         return labelSettings(labelName)
     }()
-    
+
     private lazy var color: UIColor = {
         var color = UIColor()
         if let habit = habit {
@@ -28,7 +28,7 @@ class HabitViewController: UIViewController {
         }
         return color
     }()
-    
+
     private lazy var textFieldName: UITextField = {
         let textFieldName = UITextField()
         textFieldName.layer.borderWidth = 0
@@ -41,13 +41,13 @@ class HabitViewController: UIViewController {
         textFieldName.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         return textFieldName
     }()
-    
+
     private lazy var labelColor: UILabel = {
         let labelColor = UILabel()
         labelColor.text = "ЦВЕТ"
         return labelSettings(labelColor)
     }()
-    
+
     lazy var imageViewColor: UIImageView = {
         let imageViewColor = UIImageView()
         imageViewColor.layer.cornerRadius = 15
@@ -56,26 +56,26 @@ class HabitViewController: UIViewController {
         imageViewColor.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(colorSetAction)))
         return imageViewColor
     }()
-    
+
     private lazy var labelTime: UILabel = {
         let labelTime = UILabel()
         labelTime.text = "ВРЕМЯ"
         return labelSettings(labelTime)
     }()
-    
+
     private lazy var dataLabel: UILabel = {
         let dataLabel = UILabel()
         dataLabel.text = "Каждый день в "
         return dataLabel
     }()
-    
+
     private lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none
         dateFormatter.timeStyle = .short
         return dateFormatter
     }()
-    
+
     private lazy var timeLabel: UILabel = {
         let timeLabel = UILabel()
         timeLabel.textColor = UIColor(
@@ -86,7 +86,7 @@ class HabitViewController: UIViewController {
         timeLabel.text = dateFormatter.string(from: dataPicker.date)
         return timeLabel
     }()
-    
+
     private lazy var dataPicker: UIDatePicker = {
         let dataPicker = UIDatePicker()
         dataPicker.datePickerMode = .time
@@ -100,7 +100,7 @@ class HabitViewController: UIViewController {
         dataPicker.addTarget(self, action: #selector(pickerAction), for: .allEvents)
         return dataPicker
     }()
-    
+
     private lazy var deleteButton: UILabel = {
         let deleteButton = UILabel()
         deleteButton.text = "Удалить привычку"
@@ -118,7 +118,7 @@ class HabitViewController: UIViewController {
         }
         return deleteButton
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -135,15 +135,15 @@ class HabitViewController: UIViewController {
         ])
         installingСonstraints()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         navigationBarSetting()
     }
-    
+
 }
 
 extension HabitViewController {
-    
+
     private func installingСonstraints() {
         NSLayoutConstraint.activate([
             labelName.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 21),
@@ -170,17 +170,17 @@ extension HabitViewController {
             deleteButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
         ])
     }
-    
+
     private func labelSettings(_ label: UILabel) -> UILabel {
         label.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
         label.tintColor = .black
         return label
     }
-    
+
     @objc func pickerAction() {
         timeLabel.text = dateFormatter.string(from: dataPicker.date)
     }
-    
+
     @objc func buttonAction() {
         guard let name = textFieldName.text else { return }
         guard name != "" else { return }
@@ -200,7 +200,7 @@ extension HabitViewController {
             dismiss(animated: true)
         }
     }
-    
+
     @objc func buttenBackAction() {
         if let _ = habit {
             navigationController?.popViewController(animated: true)
@@ -208,14 +208,14 @@ extension HabitViewController {
             dismiss(animated: true)
         }
     }
-    
+
     @objc func colorSetAction() {
         let colorSet = UIColorPickerViewController()
         colorSet.selectedColor = imageViewColor.backgroundColor ?? color
         colorSet.delegate = self
         present(colorSet, animated: true)
     }
-    
+
     @objc func deleteButtonAction() {
         let avc = UIAlertController(title: "Удалить привычку", message: "Вы хотите удалить привычку \n \"" + (habit?.name ?? "Ваша привычка") + "\"?", preferredStyle: .alert)
         avc.addAction(UIAlertAction(title: "Отмена", style: .cancel){ _ in
@@ -228,7 +228,7 @@ extension HabitViewController {
         })
         present(avc, animated: true)
     }
-    
+
     private func navigationBarSetting() {
         if let _ = habit {
             title = "Править"
@@ -258,16 +258,16 @@ extension HabitViewController {
             blue: 204/255,
             alpha: 1.0)
     }
-    
+
 }
 
 extension HabitViewController: UIColorPickerViewControllerDelegate {
-    
+
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
         let color = viewController.selectedColor
         imageViewColor.backgroundColor = color
     }
-    
+
 }
 
 

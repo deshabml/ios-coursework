@@ -58,7 +58,7 @@ extension DateTableViewCell {
             dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 11),
             imageStatus.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 11),
-            imageStatus.leadingAnchor.constraint(equalTo: dateLabel.trailingAnchor, constant: 270)
+            imageStatus.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 350)
         ])
     }
     

@@ -11,7 +11,6 @@
 		DD1A9AF0296DC441002CB89B /* ProgressCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1A9AEF296DC441002CB89B /* ProgressCollectionViewCell.swift */; };
 		DD92F664295A329E00FDC314 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92F663295A329E00FDC314 /* AppDelegate.swift */; };
 		DD92F666295A329E00FDC314 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92F665295A329E00FDC314 /* SceneDelegate.swift */; };
-		DD92F668295A329E00FDC314 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92F667295A329E00FDC314 /* ViewController.swift */; };
 		DD92F66D295A32A000FDC314 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD92F66C295A32A000FDC314 /* Assets.xcassets */; };
 		DD92F670295A32A000FDC314 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD92F66E295A32A000FDC314 /* LaunchScreen.storyboard */; };
 		DDD5A25529705EAB008DB9FD /* HabitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD5A25429705EAB008DB9FD /* HabitDetailsViewController.swift */; };
@@ -21,7 +20,7 @@
 		DDED10EC295B4F4300680998 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED10EB295B4F4300680998 /* HabitsViewController.swift */; };
 		DDED10EE295B4F7D00680998 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED10ED295B4F7D00680998 /* InfoViewController.swift */; };
 		DDED10F1295B4FB000680998 /* HabitsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED10F0295B4FB000680998 /* HabitsStore.swift */; };
-		DDED10F6295B5B0B00680998 /* AddSudviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED10F5295B5B0B00680998 /* AddSudviews.swift */; };
+		DDED10F6295B5B0B00680998 /* UIView+AddSudviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED10F5295B5B0B00680998 /* UIView+AddSudviews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +29,6 @@
 		DD92F660295A329E00FDC314 /* MyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD92F663295A329E00FDC314 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD92F665295A329E00FDC314 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DD92F667295A329E00FDC314 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DD92F66C295A32A000FDC314 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD92F66F295A32A000FDC314 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD92F671295A32A000FDC314 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,7 +39,7 @@
 		DDED10EB295B4F4300680998 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
 		DDED10ED295B4F7D00680998 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		DDED10F0295B4FB000680998 /* HabitsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsStore.swift; sourceTree = "<group>"; };
-		DDED10F5295B5B0B00680998 /* AddSudviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSudviews.swift; sourceTree = "<group>"; };
+		DDED10F5295B5B0B00680998 /* UIView+AddSudviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSudviews.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,15 +72,11 @@
 		DD92F662295A329E00FDC314 /* MyHabits */ = {
 			isa = PBXGroup;
 			children = (
-				DD92F663295A329E00FDC314 /* AppDelegate.swift */,
-				DD92F665295A329E00FDC314 /* SceneDelegate.swift */,
-				DD92F667295A329E00FDC314 /* ViewController.swift */,
-				DDED10F5295B5B0B00680998 /* AddSudviews.swift */,
+				DDF9E3B329745611001FA151 /* Application */,
+				DDF9E3BE29748851001FA151 /* Core */,
 				DDED10EF295B4FA000680998 /* Habits */,
 				DDED10F4295B508000680998 /* Info */,
-				DD92F66C295A32A000FDC314 /* Assets.xcassets */,
-				DD92F66E295A32A000FDC314 /* LaunchScreen.storyboard */,
-				DD92F671295A32A000FDC314 /* Info.plist */,
+				DDF9E3B8297456D9001FA151 /* Supporting files */,
 			);
 			path = MyHabits;
 			sourceTree = "<group>";
@@ -90,14 +84,9 @@
 		DDED10EF295B4FA000680998 /* Habits */ = {
 			isa = PBXGroup;
 			children = (
-				DDED10EB295B4F4300680998 /* HabitsViewController.swift */,
-				DD1A9AEF296DC441002CB89B /* ProgressCollectionViewCell.swift */,
-				DD1A9AED296D9537002CB89B /* HabitCollectionViewCell.swift */,
-				DDD5A25429705EAB008DB9FD /* HabitDetailsViewController.swift */,
-				DDD5A2582971474D008DB9FD /* HabitDetailsHederCell.swift */,
-				DDD5A25629713F1F008DB9FD /* DateTableViewCell.swift */,
-				DDD81449296181420088F871 /* HabitViewController.swift */,
-				DDED10F0295B4FB000680998 /* HabitsStore.swift */,
+				DDF9E3B9297458D6001FA151 /* Model */,
+				DDF9E3BA297458DE001FA151 /* View */,
+				DDF9E3BB297458E6001FA151 /* Controller */,
 			);
 			path = Habits;
 			sourceTree = "<group>";
@@ -105,9 +94,97 @@
 		DDED10F4295B508000680998 /* Info */ = {
 			isa = PBXGroup;
 			children = (
-				DDED10ED295B4F7D00680998 /* InfoViewController.swift */,
+				DDF9E3BC297459BC001FA151 /* Controller */,
 			);
 			path = Info;
+			sourceTree = "<group>";
+		};
+		DDF9E3B329745611001FA151 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DDF9E3B72974567A001FA151 /* View */,
+				DDF9E3B42974562D001FA151 /* Controller */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DDF9E3B42974562D001FA151 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD92F665295A329E00FDC314 /* SceneDelegate.swift */,
+				DD92F663295A329E00FDC314 /* AppDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDF9E3B72974567A001FA151 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD92F66E295A32A000FDC314 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDF9E3B8297456D9001FA151 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				DD92F66C295A32A000FDC314 /* Assets.xcassets */,
+				DD92F671295A32A000FDC314 /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		DDF9E3B9297458D6001FA151 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDED10F0295B4FB000680998 /* HabitsStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDF9E3BA297458DE001FA151 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD1A9AEF296DC441002CB89B /* ProgressCollectionViewCell.swift */,
+				DD1A9AED296D9537002CB89B /* HabitCollectionViewCell.swift */,
+				DDD5A2582971474D008DB9FD /* HabitDetailsHederCell.swift */,
+				DDD5A25629713F1F008DB9FD /* DateTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDF9E3BB297458E6001FA151 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDED10EB295B4F4300680998 /* HabitsViewController.swift */,
+				DDD5A25429705EAB008DB9FD /* HabitDetailsViewController.swift */,
+				DDD81449296181420088F871 /* HabitViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDF9E3BC297459BC001FA151 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDED10ED295B4F7D00680998 /* InfoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDF9E3BE29748851001FA151 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DDF9E3BF2974887E001FA151 /* Extension */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		DDF9E3BF2974887E001FA151 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DDED10F5295B5B0B00680998 /* UIView+AddSudviews.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,7 +258,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDED10F1295B4FB000680998 /* HabitsStore.swift in Sources */,
-				DD92F668295A329E00FDC314 /* ViewController.swift in Sources */,
 				DD1A9AEE296D9537002CB89B /* HabitCollectionViewCell.swift in Sources */,
 				DDD5A25729713F1F008DB9FD /* DateTableViewCell.swift in Sources */,
 				DD92F664295A329E00FDC314 /* AppDelegate.swift in Sources */,
@@ -192,7 +268,7 @@
 				DD1A9AF0296DC441002CB89B /* ProgressCollectionViewCell.swift in Sources */,
 				DDED10EE295B4F7D00680998 /* InfoViewController.swift in Sources */,
 				DD92F666295A329E00FDC314 /* SceneDelegate.swift in Sources */,
-				DDED10F6295B5B0B00680998 /* AddSudviews.swift in Sources */,
+				DDED10F6295B5B0B00680998 /* UIView+AddSudviews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,7 +409,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 62VLSN5H88;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyHabits/Info.plist;
+				INFOPLIST_FILE = "MyHabits/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
@@ -360,7 +436,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 62VLSN5H88;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyHabits/Info.plist;
+				INFOPLIST_FILE = "MyHabits/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";

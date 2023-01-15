@@ -12,7 +12,8 @@ class HabitCollectionViewCell: UICollectionViewCell {
     static let id = "HabitCollectionViewCell"
 
     private var habit: Habit!
-    private var onImageStatusAction: (() -> Void)!
+    
+    private var onImageStatusAction: (() -> ())!
 
     private lazy var labelName: UILabel = {
         let labelName = UILabel()
@@ -82,7 +83,7 @@ extension HabitCollectionViewCell {
         ])
     }
 
-    func setupCell(_ habit: Habit, onImageStatusAction: @escaping () -> Void) {
+    func setupCell(_ habit: Habit, onImageStatusAction: @escaping () -> ()) {
         self.habit = habit
         self.onImageStatusAction = onImageStatusAction
         labelTime.text = habit.dateString
