@@ -1,10 +1,10 @@
+////
+////  HabitCollectionViewCell.swift
+////  MyHabits
+////
+////  Created by Лаборатория on 10.01.2023.
+////
 //
-//  HabitCollectionViewCell.swift
-//  MyHabits
-//
-//  Created by Лаборатория on 10.01.2023.
-//
-
 import UIKit
 
 class HabitCollectionViewCell: UICollectionViewCell {
@@ -12,7 +12,8 @@ class HabitCollectionViewCell: UICollectionViewCell {
     static let id = "HabitCollectionViewCell"
 
     private var habit: Habit!
-    private var onImageStatusAction: (() -> Void)!
+    
+    private var onImageStatusAction: (() -> ())!
 
     private lazy var labelName: UILabel = {
         let labelName = UILabel()
@@ -82,7 +83,7 @@ extension HabitCollectionViewCell {
         ])
     }
 
-    func setupCell(_ habit: Habit, onImageStatusAction: @escaping () -> Void) {
+    func setupCell(_ habit: Habit, onImageStatusAction: @escaping () -> ()) {
         self.habit = habit
         self.onImageStatusAction = onImageStatusAction
         labelTime.text = habit.dateString
@@ -103,5 +104,5 @@ extension HabitCollectionViewCell {
         HabitsStore.shared.track(habit)
         onImageStatusAction()
     }
-    
+
 }
