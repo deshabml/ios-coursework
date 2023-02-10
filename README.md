@@ -12,10 +12,6 @@
 
 - Использование UITableView, UICollectionView и кастомных ячеек.
 
-  <p align="center" width="100%">
-    <img width="75%" src="https://github.com/netology-code/iosui-diplom/tree/main/Assets/promo.png"> 
-  </p>
-
 <h2>Список литературы</h2>
 
 developer.apple: Device screen sizes and orientations
